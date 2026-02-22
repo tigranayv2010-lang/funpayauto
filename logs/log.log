@@ -1,0 +1,1006 @@
+[22.02.26 00:53:50][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 00:57:46][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 00:57:46][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 00:57:46][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 00:57:46][main.py][122]> I: Загружаю конфиг auto_delivery.cfg...
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из handlers.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из announcements.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][806]> I: Плагины не обнаружены.
+[22.02.26 00:57:46][bot.py][1253]> I: Telegram бот инициализирован.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_response_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_delivery_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.config_loader_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.templates_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.plugins_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.file_uploader.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.authorized_users_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.proxy_cp.py зарегистрированы.
+[22.02.26 00:57:46][cardinal.py][850]> I: Хэндлеры из tg_bot.default_cp.py зарегистрированы.
+[22.02.26 00:58:01][bot.py][1263]> I: Telegram бот @funpayTigSam_bot запущен.
+[22.02.26 00:58:06][bot.py][310]> W: @tigranayv (ID: 8133917737) попытался получить доступ к ПУ. Сдерживаю его как могу!
+[22.02.26 00:58:20][cardinal.py][222]> I: 
+[22.02.26 00:58:20][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 00:58:20][cardinal.py][222]> I: * Какая прекрасная ночь, TigSam.                           *
+[22.02.26 00:58:20][cardinal.py][222]> I: * Ваш ID: 11433510.                                        *
+[22.02.26 00:58:20][cardinal.py][222]> I: * Ваш текущий баланс: 1053.96 RUB | 0.0 USD | 0.0 EUR      *
+[22.02.26 00:58:20][cardinal.py][222]> I: * Текущие незавершенные сделки: 0.                         *
+[22.02.26 00:58:20][cardinal.py][222]> I: * Удачной торговли!                                        *
+[22.02.26 00:58:20][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 00:58:20][cardinal.py][222]> I: 
+[22.02.26 00:58:20][cardinal.py][248]> I: Получаю данные о лотах и категориях...
+[22.02.26 00:58:20][cardinal.py][273]> I: Обновил информацию о лотах (15) и категориях (2) профиля.
+[22.02.26 00:58:20][cardinal.py][277]> I: Обновил информацию о лотах (15) и категориях (2) профиля (TG ПУ).
+[22.02.26 00:58:20][cardinal.py][614]> I: Цикл автоподнятия лотов запущен (это не значит, что автоподнятие лотов включено).
+[22.02.26 00:58:20][cardinal.py][632]> I: Цикл обновления сессии запущен.
+[22.02.26 00:58:24][bot.py][310]> W: @tigranayv (ID: 8133917737) попытался получить доступ к ПУ. Сдерживаю его как могу!
+[22.02.26 00:59:01][bot.py][305]> W: @tigranayv (ID: 8133917737) получил доступ к ПУ.
+[22.02.26 01:05:23][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:05:23][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:05:23][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:05:23][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:05:23][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут. |Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  8]: 'random_answer = true\r\n'
+	[line  9]: 'delay_min = 2\r\n'
+	[line 10]: 'delay_max = 6\r\n'
+	[line 11]: 'only_first_message = true   ; только на первое сообщение в чате\r\n'
+	[line 14]: 'trigger = *   ; любой текст, если ничего выше не подошло\r\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 16]: 'delay_min = 4\r\n'
+	[line 17]: 'delay_max = 10\r\n'
+	[line 18]: 'cooldown = 30  \r\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:05:23][main.py][138]> E: Завершаю программу...
+[22.02.26 01:07:28][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:07:28][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:07:28][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:07:28][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:07:28][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут. |Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  8]: 'random_answer = true\r\n'
+	[line  9]: 'delay_min = 2\r\n'
+	[line 10]: 'delay_max = 6\r\n'
+	[line 11]: 'only_first_message = true   ; только на первое сообщение в чате\r\n'
+	[line 14]: 'trigger = *   ; любой текст, если ничего выше не подошло\r\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 16]: 'delay_min = 4\r\n'
+	[line 17]: 'delay_max = 10\r\n'
+	[line 18]: 'cooldown = 30  \r\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:07:28][main.py][138]> E: Завершаю программу...
+[22.02.26 01:10:18][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:10:18][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:10:18][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:10:18][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:10:18][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут. |Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  8]: 'random_answer = true\r\n'
+	[line  9]: 'delay_min = 2\r\n'
+	[line 10]: 'delay_max = 6\r\n'
+	[line 11]: 'only_first_message = true   ; только на первое сообщение в чате\r\n'
+	[line 14]: 'trigger = *   ; любой текст, если ничего выше не подошло\r\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 16]: 'delay_min = 4\r\n'
+	[line 17]: 'delay_max = 10\r\n'
+	[line 18]: 'cooldown = 30  \r\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:10:18][main.py][138]> E: Завершаю программу...
+[22.02.26 01:14:51][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:14:51][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:14:51][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:14:51][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:14:51][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут. |Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  8]: 'random_answer = true\r\n'
+	[line  9]: 'delay_min = 2\r\n'
+	[line 10]: 'delay_max = 6\r\n'
+	[line 11]: 'only_first_message = true   ; только на первое сообщение в чате\r\n'
+	[line 14]: 'trigger = *   ; любой текст, если ничего выше не подошло\r\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 16]: 'delay_min = 4\r\n'
+	[line 17]: 'delay_max = 10\r\n'
+	[line 18]: 'cooldown = 30  \r\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:14:51][main.py][138]> E: Завершаю программу...
+[22.02.26 01:15:12][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:15:12][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:15:12][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:15:12][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:15:12][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут. |Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  8]: 'random_answer = true\r\n'
+	[line  9]: 'delay_min = 2\r\n'
+	[line 10]: 'delay_max = 6\r\n'
+	[line 11]: 'only_first_message = true   ; только на первое сообщение в чате\r\n'
+	[line 14]: 'trigger = *   ; любой текст, если ничего выше не подошло\r\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 16]: 'delay_min = 4\r\n'
+	[line 17]: 'delay_max = 10\r\n'
+	[line 18]: 'cooldown = 30  \r\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:15:12][main.py][138]> E: Завершаю программу...
+[22.02.26 01:19:04][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:19:04][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:19:04][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:19:04][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:19:04][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  7]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  8]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  9]: 'random_answer = true\r\n'
+	[line 10]: 'delay_min = 2\r\n'
+	[line 11]: 'delay_max = 6\r\n'
+	[line 12]: 'only_first_message = true\r\n'
+	[line 16]: 'trigger = *\r\n'
+	[line 17]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 18]: 'delay_min = 4\r\n'
+	[line 19]: 'delay_max = 10\r\n'
+	[line 20]: 'cooldown = 30\r\n'
+	[line 21]: 'only_first_message = true'
+[22.02.26 01:19:04][main.py][138]> E: Завершаю программу...
+[22.02.26 01:19:18][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:19:18][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:19:18][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:19:18][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:19:18][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  7]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  8]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  9]: 'random_answer = true\r\n'
+	[line 10]: 'delay_min = 2\r\n'
+	[line 11]: 'delay_max = 6\r\n'
+	[line 12]: 'only_first_message = true\r\n'
+	[line 16]: 'trigger = *\r\n'
+	[line 17]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 18]: 'delay_min = 4\r\n'
+	[line 19]: 'delay_max = 10\r\n'
+	[line 20]: 'cooldown = 30\r\n'
+	[line 21]: 'only_first_message = true'
+[22.02.26 01:19:18][main.py][138]> E: Завершаю программу...
+[22.02.26 01:21:57][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:21:57][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:21:57][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:21:57][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:21:57][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\n'
+	[line  8]: 'random_answer = true\n'
+	[line  9]: 'delay_min = 2\n'
+	[line 10]: 'delay_max = 6\n'
+	[line 11]: 'only_first_message = true\n'
+	[line 14]: 'trigger = *\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\n'
+	[line 16]: 'delay_min = 4\n'
+	[line 17]: 'delay_max = 10\n'
+	[line 18]: 'cooldown = 30\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:21:57][main.py][138]> E: Завершаю программу...
+[22.02.26 01:22:33][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 01:22:33][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 01:22:33][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 01:22:33][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 01:22:33][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  6]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\n'
+	[line  7]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\n'
+	[line  8]: 'random_answer = true\n'
+	[line  9]: 'delay_min = 2\n'
+	[line 10]: 'delay_max = 6\n'
+	[line 11]: 'only_first_message = true\n'
+	[line 14]: 'trigger = *\n'
+	[line 15]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\n'
+	[line 16]: 'delay_min = 4\n'
+	[line 17]: 'delay_max = 10\n'
+	[line 18]: 'cooldown = 30\n'
+	[line 19]: 'only_first_message = true'
+[22.02.26 01:22:33][main.py][138]> E: Завершаю программу...
+[22.02.26 19:47:15][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:47:15][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:47:15][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:47:15][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:47:15][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  4]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\n'
+	[line  5]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\n'
+	[line  6]: 'random_answer = true\n'
+	[line  7]: 'delay_min = 2\n'
+	[line  8]: 'delay_max = 6\n'
+	[line  9]: 'only_first_message = true\n'
+	[line 12]: 'trigger = *\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\n'
+	[line 14]: 'delay_min = 4\n'
+	[line 15]: 'delay_max = 10\n'
+	[line 16]: 'cooldown = 30\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 19:47:15][main.py][138]> E: Завершаю программу...
+[22.02.26 19:49:26][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:49:26][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:49:26][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:49:26][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:49:26][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  4]: 'trigger = привет|здра|здравствуйте|добрый|hi|hello|прив\r\n'
+	[line  5]: 'answer = Привет! Чем могу помочь?. Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  6]: 'random_answer = true\r\n'
+	[line  7]: 'delay_min = 2\r\n'
+	[line  8]: 'delay_max = 6\r\n'
+	[line  9]: 'only_first_message = true\r\n'
+	[line 12]: 'trigger = *\r\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично\r\n'
+	[line 14]: 'delay_min = 4\r\n'
+	[line 15]: 'delay_max = 10\r\n'
+	[line 16]: 'cooldown = 30\r\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 19:49:26][main.py][138]> E: Завершаю программу...
+[22.02.26 19:50:49][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:50:49][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:50:49][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:50:49][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:50:49][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  5]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  6]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  7]: 'random_answer = true\r\n'
+	[line  8]: 'delay_min = 2\r\n'
+	[line  9]: 'delay_max = 6\r\n'
+	[line 10]: 'only_first_message = true\r\n'
+	[line 13]: 'trigger = *\r\n'
+	[line 14]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 15]: 'delay_min = 4\r\n'
+	[line 16]: 'delay_max = 10\r\n'
+	[line 17]: 'cooldown = 30\r\n'
+	[line 18]: 'only_first_message = true'
+[22.02.26 19:50:49][main.py][138]> E: Завершаю программу...
+[22.02.26 19:52:08][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:52:08][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:52:08][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:52:08][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:52:08][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  5]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  6]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  7]: 'random_answer = true\r\n'
+	[line  8]: 'delay_min = 2\r\n'
+	[line  9]: 'delay_max = 6\r\n'
+	[line 10]: 'only_first_message = true\r\n'
+	[line 13]: 'trigger = *\r\n'
+	[line 14]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 15]: 'delay_min = 4\r\n'
+	[line 16]: 'delay_max = 10\r\n'
+	[line 17]: 'cooldown = 30\r\n'
+	[line 18]: 'only_first_message = true'
+[22.02.26 19:52:08][main.py][138]> E: Завершаю программу...
+[22.02.26 19:53:50][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:53:50][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:53:50][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:53:50][main.py][122]> I: Загружаю конфиг auto_delivery.cfg...
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из handlers.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из announcements.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][806]> I: Плагины не обнаружены.
+[22.02.26 19:53:50][bot.py][1253]> I: Telegram бот инициализирован.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_response_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_delivery_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.config_loader_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.templates_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.plugins_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.file_uploader.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.authorized_users_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.proxy_cp.py зарегистрированы.
+[22.02.26 19:53:50][cardinal.py][850]> I: Хэндлеры из tg_bot.default_cp.py зарегистрированы.
+[22.02.26 19:53:55][bot.py][1263]> I: Telegram бот @funpayTigSam_bot запущен.
+[22.02.26 19:53:58][cardinal.py][222]> I: 
+[22.02.26 19:53:58][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 19:53:58][cardinal.py][222]> I: * Добрый вечер, TigSam.                                    *
+[22.02.26 19:53:58][cardinal.py][222]> I: * Ваш ID: 11433510.                                        *
+[22.02.26 19:53:58][cardinal.py][222]> I: * Ваш текущий баланс: 1053.96 RUB | 0.0 USD | 0.0 EUR      *
+[22.02.26 19:53:58][cardinal.py][222]> I: * Текущие незавершенные сделки: 0.                         *
+[22.02.26 19:53:58][cardinal.py][222]> I: * Удачной торговли!                                        *
+[22.02.26 19:53:58][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 19:53:58][cardinal.py][222]> I: 
+[22.02.26 19:53:58][cardinal.py][248]> I: Получаю данные о лотах и категориях...
+[22.02.26 19:53:58][cardinal.py][273]> I: Обновил информацию о лотах (15) и категориях (2) профиля.
+[22.02.26 19:53:58][cardinal.py][277]> I: Обновил информацию о лотах (15) и категориях (2) профиля (TG ПУ).
+[22.02.26 19:53:58][cardinal.py][614]> I: Цикл автоподнятия лотов запущен (это не значит, что автоподнятие лотов включено).
+[22.02.26 19:53:58][cardinal.py][632]> I: Цикл обновления сессии запущен.
+[22.02.26 19:56:43][main.py][147]> I: Завершаю программу...
+[22.02.26 19:57:07][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:57:07][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:57:07][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:57:07][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:57:07][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  5]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  6]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  7]: 'random_answer = true\r\n'
+	[line  8]: 'delay_min = 2\r\n'
+	[line  9]: 'delay_max = 6\r\n'
+	[line 10]: 'only_first_message = true\r\n'
+	[line 13]: 'trigger = *\r\n'
+	[line 14]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 15]: 'delay_min = 4\r\n'
+	[line 16]: 'delay_max = 10\r\n'
+	[line 17]: 'cooldown = 30\r\n'
+	[line 18]: 'only_first_message = true'
+[22.02.26 19:57:07][main.py][138]> E: Завершаю программу...
+[22.02.26 19:58:29][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 19:58:29][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 19:58:29][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 19:58:29][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 19:58:29][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 254, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 56, in create_config_obj
+    config.read_file(codecs.open(config_path, "r", "utf8"))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  5]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  6]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  7]: 'random_answer = true\r\n'
+	[line  8]: 'delay_min = 2\r\n'
+	[line  9]: 'delay_max = 6\r\n'
+	[line 10]: 'only_first_message = true\r\n'
+	[line 13]: 'trigger = *\r\n'
+	[line 14]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 15]: 'delay_min = 4\r\n'
+	[line 16]: 'delay_max = 10\r\n'
+	[line 17]: 'cooldown = 30\r\n'
+	[line 18]: 'only_first_message = true'
+[22.02.26 19:58:29][main.py][138]> E: Завершаю программу...
+[22.02.26 20:01:11][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:01:11][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:01:11][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:01:11][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 20:01:11][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 255, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 57, in create_config_obj
+    config.read_file(f)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  5]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  6]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  7]: 'random_answer = true\r\n'
+	[line  8]: 'delay_min = 2\r\n'
+	[line  9]: 'delay_max = 6\r\n'
+	[line 10]: 'only_first_message = true\r\n'
+	[line 13]: 'trigger = *\r\n'
+	[line 14]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 15]: 'delay_min = 4\r\n'
+	[line 16]: 'delay_max = 10\r\n'
+	[line 17]: 'cooldown = 30\r\n'
+	[line 18]: 'only_first_message = true'
+[22.02.26 20:01:11][main.py][138]> E: Завершаю программу...
+[22.02.26 20:04:06][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:04:06][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:04:06][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:04:06][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 20:04:06][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 256, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 57, in create_config_obj
+    config.read_file(f)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  4]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  5]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  6]: 'random_answer = true\r\n'
+	[line  7]: 'delay_min = 2\r\n'
+	[line  8]: 'delay_max = 6\r\n'
+	[line  9]: 'only_first_message = true\r\n'
+	[line 12]: 'trigger = *\r\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 14]: 'delay_min = 4\r\n'
+	[line 15]: 'delay_max = 10\r\n'
+	[line 16]: 'cooldown = 30\r\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 20:04:06][main.py][138]> E: Завершаю программу...
+[22.02.26 20:04:41][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:04:41][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:04:41][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:04:41][main.py][122]> I: Загружаю конфиг auto_delivery.cfg...
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из handlers.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из announcements.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][806]> I: Плагины не обнаружены.
+[22.02.26 20:04:41][bot.py][1253]> I: Telegram бот инициализирован.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_response_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_delivery_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.config_loader_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.templates_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.plugins_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.file_uploader.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.authorized_users_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.proxy_cp.py зарегистрированы.
+[22.02.26 20:04:41][cardinal.py][850]> I: Хэндлеры из tg_bot.default_cp.py зарегистрированы.
+[22.02.26 20:04:49][bot.py][1263]> I: Telegram бот @funpayTigSam_bot запущен.
+[22.02.26 20:04:52][cardinal.py][222]> I: 
+[22.02.26 20:04:52][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:04:52][cardinal.py][222]> I: * Добрый вечер, TigSam.                                    *
+[22.02.26 20:04:52][cardinal.py][222]> I: * Ваш ID: 11433510.                                        *
+[22.02.26 20:04:52][cardinal.py][222]> I: * Ваш текущий баланс: 1053.96 RUB | 0.0 USD | 0.0 EUR      *
+[22.02.26 20:04:52][cardinal.py][222]> I: * Текущие незавершенные сделки: 0.                         *
+[22.02.26 20:04:52][cardinal.py][222]> I: * Удачной торговли!                                        *
+[22.02.26 20:04:52][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:04:52][cardinal.py][222]> I: 
+[22.02.26 20:04:52][cardinal.py][248]> I: Получаю данные о лотах и категориях...
+[22.02.26 20:04:52][cardinal.py][273]> I: Обновил информацию о лотах (15) и категориях (2) профиля.
+[22.02.26 20:04:52][cardinal.py][277]> I: Обновил информацию о лотах (15) и категориях (2) профиля (TG ПУ).
+[22.02.26 20:04:52][cardinal.py][614]> I: Цикл автоподнятия лотов запущен (это не значит, что автоподнятие лотов включено).
+[22.02.26 20:04:52][cardinal.py][632]> I: Цикл обновления сессии запущен.
+[22.02.26 20:07:37][file_uploader.py][154]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\tg_bot\file_uploader.py", line 142, in upload_main_config
+    new_config = cfg_loader.load_main_config("storage/cache/temp_main.cfg")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 70, in load_main_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 57, in create_config_obj
+    config.read_file(f)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'storage/cache/temp_main.cfg'
+	[line  4]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  5]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  6]: 'random_answer = true\r\n'
+	[line  7]: 'delay_min = 2\r\n'
+	[line  8]: 'delay_max = 6\r\n'
+	[line  9]: 'only_first_message = true\r\n'
+	[line 12]: 'trigger = *\r\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 14]: 'delay_min = 4\r\n'
+	[line 15]: 'delay_max = 10\r\n'
+	[line 16]: 'cooldown = 30\r\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 20:08:16][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр sendGreetings секции [Greetings] на 1.
+[22.02.26 20:08:17][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр onlyNewChats секции [Greetings] на 1.
+[22.02.26 20:12:20][bot.py][736]> I: @tigranayv (ID: 8133917737) изменил текст приветствия на Приветствую, $chat_name . Ваш запрос принят в рассмотрение. Пожалуйста, подождите пока отвечу Вам лично. Это займет не более пяти минут! $sleep=5.
+[22.02.26 20:12:42][bot.py][248]> E: Произошла ошибка при выполнении хэндлера Telegram бота.
+[22.02.26 20:12:42][bot.py][249]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\tg_bot\bot.py", line 246, in run_handler
+    handler(call)
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\tg_bot\bot.py", line 1019, in open_settings_section
+    self.bot.answer_callback_query(c.id)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\telebot\__init__.py", line 5357, in answer_callback_query
+    return apihelper.answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\telebot\apihelper.py", line 1602, in answer_callback_query
+    return _make_request(token, method_url, params=payload, method='post')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\telebot\apihelper.py", line 164, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\telebot\apihelper.py", line 191, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: query is too old and response timeout expired or query ID is invalid
+[22.02.26 20:13:13][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр star5Reply секции [ReviewReply] на 1.
+[22.02.26 20:14:29][bot.py][797]> I: @tigranayv (ID: 8133917737) изменил текст ответа на отзыв с 5 зв. на Благодарю за отзыв, $username . Вы купили товар $order_title !.
+[22.02.26 20:14:32][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр star4Reply секции [ReviewReply] на 1.
+[22.02.26 20:14:36][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр star3Reply секции [ReviewReply] на 1.
+[22.02.26 20:14:37][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр star2Reply секции [ReviewReply] на 1.
+[22.02.26 20:14:38][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр star1Reply секции [ReviewReply] на 1.
+[22.02.26 20:14:45][bot.py][797]> I: @tigranayv (ID: 8133917737) изменил текст ответа на отзыв с 4 зв. на Благодарю за отзыв, $username . Вы купили товар $order_title !.
+[22.02.26 20:14:49][bot.py][797]> I: @tigranayv (ID: 8133917737) изменил текст ответа на отзыв с 3 зв. на Благодарю за отзыв, $username . Вы купили товар $order_title !.
+[22.02.26 20:14:55][bot.py][797]> I: @tigranayv (ID: 8133917737) изменил текст ответа на отзыв с 2 зв. на Благодарю за отзыв, $username . Вы купили товар $order_title !.
+[22.02.26 20:15:02][bot.py][797]> I: @tigranayv (ID: 8133917737) изменил текст ответа на отзыв с 1 зв. на Благодарю за отзыв, $username . Вы купили товар $order_title !.
+[22.02.26 20:15:16][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр includeMyMessages секции [NewMessageView] на 0.
+[22.02.26 20:15:25][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр includeMyMessages секции [NewMessageView] на 1.
+[22.02.26 20:16:09][templates_cp.py][104]> I: @tigranayv (ID: 8133917737) добавил заготовку ответа "стхсфдсф".
+[22.02.26 20:16:16][templates_cp.py][120]> I: @tigranayv (ID: 8133917737) удалил заготовку ответа "стхсфдсф".
+[22.02.26 20:16:33][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр autoRaise секции [FunPay] на 1.
+[22.02.26 20:16:35][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр autoResponse секции [FunPay] на 1.
+[22.02.26 20:16:43][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Ваши предложения подняты.', 'error': 0}.
+[22.02.26 20:16:43][cardinal.py][328]> I: Все лоты категории "Discord" подняты!
+[22.02.26 20:16:45][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 2 часа.', 'error': 1}.
+[22.02.26 20:16:45][cardinal.py][339]> W: Не удалось поднять лоты категории "Discord". FunPay говорит: "Подождите 2 часа.". Следующая попытка через 1ч 30мин.
+[22.02.26 20:16:46][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите час.', 'error': 1}.
+[22.02.26 20:16:46][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите час.". Следующая попытка через 1ч.
+[22.02.26 20:19:32][handlers.py][104]> I: ┌── Новое сообщение в переписке с пользователем Dav9o (CID: 241778624):
+[22.02.26 20:19:32][handlers.py][109]> I: └───> Dav9o: Привет
+[22.02.26 20:19:32][handlers.py][159]> I: Пользователь Dav9o (CID: 241778624) написал впервые! Отправляю приветственное сообщение...
+[22.02.26 20:19:33][cardinal.py][483]> I: Отправил сообщение в чат 241778624.
+[22.02.26 20:19:36][handlers.py][104]> I: ┌── Новое сообщение в переписке с пользователем Dav9o (CID: 241778624):
+[22.02.26 20:19:36][handlers.py][109]> I: └───> TigSam: 🐦
+[22.02.26 20:19:36][handlers.py][113]> I:       Приветствую, D⁣a⁣v⁣9⁣o . Ваш запрос принят в рассмотрение. Пожалуйста, подождите пока отвечу Вам лично. Это займет не более пяти минут!
+[22.02.26 20:20:12][handlers.py][104]> I: ┌── Новое сообщение в переписке с пользователем Dav9o (CID: 241778624):
+[22.02.26 20:20:12][handlers.py][109]> I: └───> Dav9o: Ок
+[22.02.26 20:20:40][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:20:40][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:20:40][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:20:40][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 20:20:40][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 256, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 57, in create_config_obj
+    config.read_file(f)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  4]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  5]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  6]: 'random_answer = true\r\n'
+	[line  7]: 'delay_min = 2\r\n'
+	[line  8]: 'delay_max = 6\r\n'
+	[line  9]: 'only_first_message = true\r\n'
+	[line 12]: 'trigger = *\r\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 14]: 'delay_min = 4\r\n'
+	[line 15]: 'delay_max = 10\r\n'
+	[line 16]: 'cooldown = 30\r\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 20:20:40][main.py][138]> E: Завершаю программу...
+[22.02.26 20:21:10][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:21:10][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:21:10][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:21:10][main.py][136]> C: Произошла непредвиденная ошибка.
+[22.02.26 20:21:10][main.py][137]> W: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\main.py", line 119, in <module>
+    AR_CFG = cfg_loader.load_auto_response_config("configs/auto_response.cfg")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 256, in load_auto_response_config
+    config = create_config_obj(config_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\Utils\config_loader.py", line 57, in create_config_obj
+    config.read_file(f)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 705, in read_file
+    self._read(f, source)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\configparser.py", line 1096, in _read
+    raise e
+configparser.ParsingError: Source contains parsing errors: 'configs/auto_response.cfg'
+	[line  4]: 'trigger = привет | здра | здравствуйте | добрый | hi | hello | прив\r\n'
+	[line  5]: 'answer = Привет! Чем могу помочь? Подождите пока отвечу, на это уйдет 5 минут.|Здорова! Подожди пока отвечу лично, на это уйдет 5 минут.\r\n'
+	[line  6]: 'random_answer = true\r\n'
+	[line  7]: 'delay_min = 2\r\n'
+	[line  8]: 'delay_max = 6\r\n'
+	[line  9]: 'only_first_message = true\r\n'
+	[line 12]: 'trigger = *\r\n'
+	[line 13]: 'answer = Уточни детали заказа пожалуйста. Скоро отвечу лично.\r\n'
+	[line 14]: 'delay_min = 4\r\n'
+	[line 15]: 'delay_max = 10\r\n'
+	[line 16]: 'cooldown = 30\r\n'
+	[line 17]: 'only_first_message = true'
+[22.02.26 20:21:10][main.py][138]> E: Завершаю программу...
+[22.02.26 20:21:34][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:21:34][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:21:34][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:21:34][main.py][122]> I: Загружаю конфиг auto_delivery.cfg...
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из handlers.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из announcements.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][806]> I: Плагины не обнаружены.
+[22.02.26 20:21:34][bot.py][1253]> I: Telegram бот инициализирован.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_response_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_delivery_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.config_loader_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.templates_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.plugins_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.file_uploader.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.authorized_users_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.proxy_cp.py зарегистрированы.
+[22.02.26 20:21:34][cardinal.py][850]> I: Хэндлеры из tg_bot.default_cp.py зарегистрированы.
+[22.02.26 20:21:39][bot.py][1263]> I: Telegram бот @funpayTigSam_bot запущен.
+[22.02.26 20:21:42][cardinal.py][222]> I: 
+[22.02.26 20:21:42][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:21:42][cardinal.py][222]> I: * Добрый вечер, TigSam.                                    *
+[22.02.26 20:21:42][cardinal.py][222]> I: * Ваш ID: 11433510.                                        *
+[22.02.26 20:21:42][cardinal.py][222]> I: * Ваш текущий баланс: 1053.96 RUB | 0.0 USD | 0.0 EUR      *
+[22.02.26 20:21:42][cardinal.py][222]> I: * Текущие незавершенные сделки: 0.                         *
+[22.02.26 20:21:42][cardinal.py][222]> I: * Удачной торговли!                                        *
+[22.02.26 20:21:42][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:21:42][cardinal.py][222]> I: 
+[22.02.26 20:21:42][cardinal.py][248]> I: Получаю данные о лотах и категориях...
+[22.02.26 20:21:43][cardinal.py][273]> I: Обновил информацию о лотах (15) и категориях (2) профиля.
+[22.02.26 20:21:43][cardinal.py][277]> I: Обновил информацию о лотах (15) и категориях (2) профиля (TG ПУ).
+[22.02.26 20:21:43][cardinal.py][614]> I: Цикл автоподнятия лотов запущен (это не значит, что автоподнятие лотов включено).
+[22.02.26 20:21:43][cardinal.py][632]> I: Цикл обновления сессии запущен.
+[22.02.26 20:21:44][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 2 часа.', 'error': 1}.
+[22.02.26 20:21:44][cardinal.py][339]> W: Не удалось поднять лоты категории "Discord". FunPay говорит: "Подождите 2 часа.". Следующая попытка через 1ч 30мин.
+[22.02.26 20:21:45][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите час.', 'error': 1}.
+[22.02.26 20:21:45][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите час.". Следующая попытка через 1ч.
+[22.02.26 20:22:19][handlers.py][104]> I: ┌── Новое сообщение в переписке с пользователем Dav9o (CID: 241778624):
+[22.02.26 20:22:19][handlers.py][109]> I: └───> Dav9o: Оаоаоаа
+[22.02.26 20:23:54][main.py][84]> D: ------------------------------------------------------------------
+[22.02.26 20:23:54][main.py][113]> I: Загружаю конфиг _main.cfg...
+[22.02.26 20:23:54][main.py][118]> I: Загружаю конфиг auto_response.cfg...
+[22.02.26 20:23:54][main.py][122]> I: Загружаю конфиг auto_delivery.cfg...
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из handlers.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из announcements.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][806]> I: Плагины не обнаружены.
+[22.02.26 20:23:54][bot.py][1253]> I: Telegram бот инициализирован.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_response_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.auto_delivery_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.config_loader_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.templates_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.plugins_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.file_uploader.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.authorized_users_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.proxy_cp.py зарегистрированы.
+[22.02.26 20:23:54][cardinal.py][850]> I: Хэндлеры из tg_bot.default_cp.py зарегистрированы.
+[22.02.26 20:23:58][bot.py][1263]> I: Telegram бот @funpayTigSam_bot запущен.
+[22.02.26 20:24:04][cardinal.py][222]> I: 
+[22.02.26 20:24:04][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:24:04][cardinal.py][222]> I: * Добрый вечер, TigSam.                                    *
+[22.02.26 20:24:04][cardinal.py][222]> I: * Ваш ID: 11433510.                                        *
+[22.02.26 20:24:04][cardinal.py][222]> I: * Ваш текущий баланс: 1053.96 RUB | 0.0 USD | 0.0 EUR      *
+[22.02.26 20:24:04][cardinal.py][222]> I: * Текущие незавершенные сделки: 0.                         *
+[22.02.26 20:24:04][cardinal.py][222]> I: * Удачной торговли!                                        *
+[22.02.26 20:24:04][cardinal.py][222]> I: ------------------------------------------------------------
+[22.02.26 20:24:04][cardinal.py][222]> I: 
+[22.02.26 20:24:04][cardinal.py][248]> I: Получаю данные о лотах и категориях...
+[22.02.26 20:24:05][cardinal.py][273]> I: Обновил информацию о лотах (15) и категориях (2) профиля.
+[22.02.26 20:24:05][cardinal.py][277]> I: Обновил информацию о лотах (15) и категориях (2) профиля (TG ПУ).
+[22.02.26 20:24:05][cardinal.py][614]> I: Цикл автоподнятия лотов запущен (это не значит, что автоподнятие лотов включено).
+[22.02.26 20:24:05][cardinal.py][632]> I: Цикл обновления сессии запущен.
+[22.02.26 20:24:06][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 2 часа.', 'error': 1}.
+[22.02.26 20:24:06][cardinal.py][339]> W: Не удалось поднять лоты категории "Discord". FunPay говорит: "Подождите 2 часа.". Следующая попытка через 1ч 30мин.
+[22.02.26 20:24:07][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите час.', 'error': 1}.
+[22.02.26 20:24:07][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите час.". Следующая попытка через 1ч.
+[22.02.26 20:25:01][handlers.py][104]> I: ┌── Новое сообщение в переписке с пользователем Dav9o (CID: 241778624):
+[22.02.26 20:25:01][handlers.py][109]> I: └───> Dav9o: Аа́аа
+[22.02.26 20:25:52][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр oldMsgGetMode секции [FunPay] на 1.
+[22.02.26 20:25:54][bot.py][978]> I: @tigranayv (ID: 8133917737) изменил параметр keepSentMessagesUnread секции [FunPay] на 1.
+[22.02.26 21:24:09][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 20 минут.', 'error': 1}.
+[22.02.26 21:24:09][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите 20 минут.". Следующая попытка через 19мин.
+[22.02.26 21:24:09][cardinal.py][566]> I: Сессия обновлена.
+[22.02.26 21:43:13][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 25 секунд.', 'error': 1}.
+[22.02.26 21:43:13][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите 25 секунд.". Следующая попытка через 25сек.
+[22.02.26 21:43:40][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Ваши предложения подняты.', 'error': 0}.
+[22.02.26 21:43:40][cardinal.py][328]> I: Все лоты категории "Telegram" подняты!
+[22.02.26 21:43:41][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 4 часа.', 'error': 1}.
+[22.02.26 21:43:41][cardinal.py][339]> W: Не удалось поднять лоты категории "Telegram". FunPay говорит: "Подождите 4 часа.". Следующая попытка через 3ч 30мин.
+[22.02.26 21:54:07][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 36 минут.', 'error': 1}.
+[22.02.26 21:54:07][cardinal.py][339]> W: Не удалось поднять лоты категории "Discord". FunPay говорит: "Подождите 36 минут.". Следующая попытка через 35мин.
+[22.02.26 22:13:55][runner.py][652]> E: Произошла ошибка при получении событий. (ничего страшного, если это сообщение появляется нечасто).
+[22.02.26 22:13:55][runner.py][654]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 627, in listen
+    updates_objects = self.get_updates()["objects"]
+                      ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 296, in get_updates
+    response = self.account.abuse_runner(last_msg_event_tag=self.__last_msg_event_tag,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\account.py", line 384, in abuse_runner
+    return self.runner.get_result(payload_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 143, in get_result
+    raise result
+Exception: Что-то пошло не так во время получения результата
+[22.02.26 22:24:58][cardinal.py][566]> I: Сессия обновлена.
+[22.02.26 22:29:47][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Ваши предложения подняты.', 'error': 0}.
+[22.02.26 22:29:47][cardinal.py][328]> I: Все лоты категории "Discord" подняты!
+[22.02.26 22:29:51][account.py][1197]> D: Ответ FunPay (поднятие категорий): {'msg': 'Подождите 2 часа.', 'error': 1}.
+[22.02.26 22:29:51][cardinal.py][339]> W: Не удалось поднять лоты категории "Discord". FunPay говорит: "Подождите 2 часа.". Следующая попытка через 1ч 30мин.
+[22.02.26 22:58:24][runner.py][652]> E: Произошла ошибка при получении событий. (ничего страшного, если это сообщение появляется нечасто).
+[22.02.26 22:58:24][runner.py][654]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 627, in listen
+    updates_objects = self.get_updates()["objects"]
+                      ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 296, in get_updates
+    response = self.account.abuse_runner(last_msg_event_tag=self.__last_msg_event_tag,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\account.py", line 384, in abuse_runner
+    return self.runner.get_result(payload_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 143, in get_result
+    raise result
+Exception: Что-то пошло не так во время получения результата
+[22.02.26 22:59:21][runner.py][548]> E: Не удалось обновить список заказов.
+[22.02.26 22:59:21][runner.py][549]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 444, in _error_catcher
+    yield
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 831, in read_chunked
+    chunk = self._handle_chunk(amt)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 784, in _handle_chunk
+    returned_chunk = self._fp._safe_read(self.chunk_left)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 642, in _safe_read
+    data = self.fp.read(amt)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 816, in read_chunked
+    with self._error_catcher():
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\response.py", line 449, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='funpay.com', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\updater\runner.py", line 543, in parse_order_updates
+    orders_list = self.account.get_sales()[1]  # todo добавить возможность реакции на подтверждение очень старых заказов
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\account.py", line 1565, in get_sales
+    response = self.method("post" if start_from else "get", link, {}, filters, raise_not_200=True, locale=locale)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\account.py", line 212, in method
+    response = self.session.request(url=link, data=payload, allow_redirects=False, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 745, in send
+    r.content
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 822, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='funpay.com', port=443): Read timed out.
+[22.02.26 22:59:25][handlers.py][506]> I: Новый заказ! ID: #RDAVXS8B
+[22.02.26 22:59:25][handlers.py][550]> I: Лот не найден в конфиге авто-выдачи!
+[22.02.26 22:59:25][handlers.py][670]> I: Получаю информацию о лотах...
+[22.02.26 22:59:25][handlers.py][89]> I: ┌── Новое сообщение в переписке с пользователем Vip121212 (CID: 241819518):
+[22.02.26 22:59:25][handlers.py][92]> I: └───> TigSam: Изображение
+[22.02.26 22:59:28][handlers.py][89]> I: ┌── Новое сообщение в переписке с пользователем Vip121212 (CID: 241819518):
+[22.02.26 22:59:28][handlers.py][92]> I: └───> TigSam: Покупатель Vip121212 написал отзыв к заказу #RDAVXS8B.
+[22.02.26 22:59:29][cardinal.py][393]> I: Получил информацию о заказе #RDAVXS8B
+[22.02.26 22:59:29][handlers.py][356]> I: Изменен отзыв на заказ #RDAVXS8B.
+[22.02.26 22:59:29][handlers.py][388]> E: Произошла ошибка при ответе на отзыв RDAVXS8B.
+[22.02.26 22:59:29][handlers.py][389]> D: TRACEBACK
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\handlers.py", line 386, in send_reply
+    c.account.send_review(order.id, reply_text)
+  File "C:\Users\Lenovo\Desktop\autofun\FunPayCardinal-0.1.16.21\FunPayAPI\account.py", line 1001, in send_review
+    raise exceptions.FeedbackEditingError(response, msg, order_id)
+FunPayAPI.common.exceptions.FeedbackEditingError: Ошибка запроса к https://funpay.com/orders/review .
+Метод: POST .
+Статус-код ответа: 400 .
+Заголовки запроса: {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'Accept-Encoding': 'gzip, deflate, br', 'accept': '*/*', 'Connection': 'keep-alive', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'HIDDEN', 'Content-Length': '595', 'Content-Type': 'application/x-www-form-urlencoded'} .
+Тело запроса: authorId=11433510&text=%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D1%8E+%D0%B7%D0%B0+%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%2C+V%E2%81%A3i%E2%81%A3p%E2%81%A31%E2%81%A32%E2%81%A31%E2%81%A32%E2%81%A31%E2%81%A32+.+%D0%92%D1%8B+%D0%BA%D1%83%D0%BF%D0%B8%D0%BB%D0%B8+%D1%82%D0%BE%D0%B2%D0%B0%D1%80+%F0%9F%92%A2+DISCORD+%7C+%D0%97%D0%B0%D0%B9%D0%B4%D1%83+%D0%BD%D0%B0+%D0%B2%D0%B0%D1%88+DISCORD-%D0%A1%D0%95%D0%A0%D0%92%D0%95%D0%A0+%7C+%D0%91%D1%8B%D1%81%D1%82%D1%80%D0%BE%2C+%D0%9D%D0%B0%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0+%F0%9F%92%A2+%21%E2%81%A1&rating=5&csrf_token=3cm91kim49qoart1&orderId=RDAVXS8B .
+Текст ответа: {"msg":"Обновите страницу и повторите попытку.","error":1}
+[22.02.26 23:01:32][bot.py][498]> I: @tigranayv (ID: 8133917737) изменил водяной знак сообщений на (автоответчик).
+[22.02.26 23:07:52][bot.py][987]> I: @tigranayv (ID: 8133917737) переключил уведомления 2 для чата 8133917737 на True.
+[22.02.26 23:07:55][bot.py][987]> I: @tigranayv (ID: 8133917737) переключил уведомления 4 для чата 8133917737 на True.
+[22.02.26 23:08:02][bot.py][987]> I: @tigranayv (ID: 8133917737) переключил уведомления 1 для чата 8133917737 на True.
+[22.02.26 23:08:14][bot.py][987]> I: @tigranayv (ID: 8133917737) переключил уведомления 9 для чата 8133917737 на True.
+[22.02.26 23:51:07][cardinal.py][566]> I: Сессия обновлена.
