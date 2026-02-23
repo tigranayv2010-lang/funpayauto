@@ -1,5 +1,5 @@
 import time
-from pip._internal.cli.main import main
+#from pip._internal.cli.main import main
 
 # todo убрать когда-то
 while True:
