@@ -22,7 +22,7 @@ import random
 import time
 import sys
 import os
-from pip._internal.cli.main import main
+#from pip._internal.cli.main import main
 import FunPayAPI
 import handlers
 import announcements
