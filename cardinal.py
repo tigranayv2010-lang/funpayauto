@@ -23,7 +23,7 @@ import random
 import time
 import sys
 import os
-from pip._internal.cli.main import main
+import subprocess
 import FunPayAPI
 import handlers
 import announcements
@@ -37,6 +37,10 @@ from threading import Thread
 logger = logging.getLogger("FPC")
 localizer = Localizer()
 _ = localizer.translate
+
+
+def _install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", package])
 
 
 def get_cardinal() -> None | Cardinal:
@@ -663,7 +667,7 @@ class Cardinal(object):
                 logger.warning("Произошла ошибка при изменении бота Telegram. Обновляю библиотеку...")
                 logger.debug("TRACEBACK", exc_info=True)
                 try:
-                    main(["install", "-U", "pytelegrambotapi==4.15.2"])
+                    _install("pytelegrambotapi==4.15.2")
                     logger.info("Библиотека обновлена.")
                 except:
                     logger.warning("Произошла ошибка при обновлении библиотеки.")
