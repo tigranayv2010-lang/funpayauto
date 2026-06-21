@@ -708,11 +708,8 @@ def update_lot_state(cardinal: Cardinal, lot: types.LotShortcut, task: int) -> b
     while attempts:
         try:
             lot_fields = cardinal.account.get_lot_fields(lot.id)
-            if lot_fields.auto_delivery:
-                # если включена автовыдача FunPay - не трогаем
-                return False
-            elif task == (1 if lot_fields.active else -1):
-                #если лот и так в нужном состоянии
+            if task == (1 if lot_fields.active else -1):
+                # если лот и так в нужном состоянии
                 return True
             elif task == 1:
                 lot_fields.active = True
@@ -815,9 +812,13 @@ def update_lots_states(cardinal: Cardinal, event: NewOrderEvent):
 def update_profiles_handler(cardinal: Cardinal, event: NewOrderEvent | OrdersListChangedEvent, *args):
     """Обновляет информацию о профилях и состояния лотов в отдельном потоке."""
     def f(c: Cardinal, e: NewOrderEvent):
-        update_current_lots(c, e)
-        update_profile_lots(c, e)
-        update_lots_states(c, e)
+        try:
+            update_current_lots(c, e)
+            update_profile_lots(c, e)
+            update_lots_states(c, e)
+        except:
+            logger.warning("Произошла ошибка при обновлении информации о профилях и состояний лотов.")
+            logger.debug("TRACEBACK", exc_info=True)
 
     if event.runner_tag != cardinal.last_profile_refresh_event_tag:
         cardinal.last_profile_refresh_event_tag = event.runner_tag

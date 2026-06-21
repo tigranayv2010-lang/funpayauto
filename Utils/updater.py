@@ -294,7 +294,7 @@ def install_release(folder_name: str) -> int:
 
 def install_backup() -> bool:
     """
-    Устанавливает бекап.
+    Устанавливает бэкап.
     """
     try:
         backup_folder = "storage/cache/backup"

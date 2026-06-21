@@ -427,7 +427,7 @@ User-state: ожидается сообщение с изображением д
 
 UPLOAD_BACKUP = "upload_backup"
 """
-User-state: ожидается сообщение с бекапом.
+User-state: ожидается сообщение с бэкапом.
 """
 
 UPDATE_PROFILE = "39"

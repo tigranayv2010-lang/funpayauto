@@ -302,6 +302,7 @@ update_update = "To update, enter the command /update"
 update_backup = "✅ Backup of configs, storage and plugins <code>backup.zip</code>.\n\n" \
                 "⚠️ DO NOT SEND this archive to ANYONE. It contains ABSOLUTELY ALL content and settings of the bot (including golden_key and product files)."
 update_backup_error = "❌ Failed to back up configs, storage and plugins."
+update_backup_send_error = "❌ Failed to send the backup."
 update_backup_not_found = "❌ Backup not found."
 update_downloaded = "✅ The update {} is downloaded (skipped {} items). Installing..."
 update_download_error = "❌ An error occurred while downloading the update."

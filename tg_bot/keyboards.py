@@ -238,9 +238,7 @@ def proxy(c: Cardinal, offset: int, proxies: dict[str, bool]):
         """
     kb = K()
     ps = list(c.proxy_dict.items())[offset: offset + MENU_CFG.PROXY_BTNS_AMOUNT]
-    ip, port = c.MAIN_CFG["Proxy"]["ip"], c.MAIN_CFG["Proxy"]["port"]
-    login, password = c.MAIN_CFG["Proxy"]["login"], c.MAIN_CFG["Proxy"]["password"]
-    now_proxy = f"{f'{login}:{password}@' if login and password else ''}{ip}:{port}"
+    now_proxy = c.MAIN_CFG["Proxy"]["proxy"]
     kb.row(B(f"", callback_data=CBT.EMPTY))
     for i, p in ps:
         work = proxies.get(p)

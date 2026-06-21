@@ -48,6 +48,16 @@ MONTHS = {
     "December": 12
 }
 
+CURRENCY_MAP = {
+    "RUB": Currency.RUB,
+    "EUR": Currency.EUR,
+    "USD": Currency.USD,
+    "₽": Currency.RUB,
+    "€": Currency.EUR,
+    "$": Currency.USD,
+    "¤": Currency.RUB,
+}
+
 
 def random_tag() -> str:
     """
@@ -78,10 +88,7 @@ def parse_wait_time(response: str) -> int:
 
 
 def parse_currency(s: str) -> Currency:
-    return {"₽": Currency.RUB,
-            "€": Currency.EUR,
-            "$": Currency.USD,
-            "¤": Currency.RUB}.get(s, Currency.UNKNOWN)
+    return CURRENCY_MAP.get(s, Currency.UNKNOWN)
 
 def parse_funpay_datetime(date_text: str) -> datetime:
     """Парсит время"""

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import math
 from typing import TYPE_CHECKING, Literal, Any, Optional, IO
 
 import FunPayAPI.common.enums
@@ -139,8 +140,17 @@ class Account:
             status_forcelist=[500, 502, 503, 504],
             allowed_methods={"GET", "POST"}
         )
+        self.cookies = {}
         adapter = HTTPAdapter(max_retries=retry_strategy)
         self.session.mount("https://", adapter)
+
+    def __update_cookies(self, response: requests.Response) -> None:
+        cookies = response.cookies.get_dict()
+        for k, v in cookies.items():
+            if k in ("PHPSESSID", "fav_games"):
+                continue
+            self.cookies[k] = v
+
 
     def method(self, request_method: Literal["post", "get"], api_method: str, headers: dict, payload: Any,
                exclude_phpsessid: bool = False, raise_not_200: bool = False,
@@ -169,19 +179,6 @@ class Account:
         :return: объект ответа.
         :rtype: :class:`requests.Response`
         """
-
-        def normalize_url(api_method: str, locale: Literal["ru", "en", "uk"] | None = None) -> str:
-            api_method = "https://funpay.com/" if api_method == "https://funpay.com" else api_method
-            url = api_method if api_method.startswith("https://funpay.com/") else "https://funpay.com/" + api_method
-            locales = ("en", "uk")
-            for loc in locales:
-                url = url.replace(f"https://funpay.com/{loc}/", "https://funpay.com/", 1)
-            if not locale:
-                locale = self.locale
-            if locale in locales:
-                return url.replace(f"https://funpay.com/", f"https://funpay.com/{locale}/", 1)
-            return url
-
         def update_locale(redirect_url: str):
             for locale in ("en", "uk"):
                 if redirect_url.startswith(f"https://funpay.com/{locale}/"):
@@ -190,26 +187,41 @@ class Account:
             if redirect_url.startswith(f"https://funpay.com"):
                 self.__locale = "ru"
 
-        headers["cookie"] = f"golden_key={self.golden_key}; cookie_prefs=1"
-        headers["cookie"] += f"; PHPSESSID={self.phpsessid}" if self.phpsessid and not exclude_phpsessid else ""
-        if self.user_agent:
-            headers["user-agent"] = self.user_agent
-        if request_method == "post" and locale:
-            link = normalize_url(api_method, locale)
+        if self.is_funpay_api_method(api_method):
+            cookies = {"golden_key": self.golden_key}
+            cookies.update(self.cookies)
+            if self.phpsessid:
+                cookies["PHPSESSID"] = self.phpsessid
+            link = self.normalize_url(api_method, locale)
         else:
-            link = normalize_url(api_method)
-        locale = locale or self.__set_locale
-        if request_method == "get" and locale and locale != self.locale:
-            link += f'{"&" if "?" in link else "?"}setlocale={locale}'
+            cookies = {"golden_key": self.golden_key,
+                       "cookie_prefs": "1"}
+            cookies.update(self.cookies)
+            if self.phpsessid and not exclude_phpsessid:
+                cookies["PHPSESSID"] = self.phpsessid
+
+            if self.user_agent:
+                headers["user-agent"] = self.user_agent
+
+            if request_method == "post" and locale:
+                link = self.normalize_url(api_method, locale)
+            else:
+                link = self.normalize_url(api_method)
+            locale = locale or self.__set_locale
+            if request_method == "get" and locale and locale != self.locale:
+                link += f'{"&" if "?" in link else "?"}setlocale={locale}'
+
         kwargs = {"method": request_method,
                   "headers": headers,
                   "timeout": self.requests_timeout,
-                  "proxies": self.proxy or {}}
+                  "proxies": self.proxy or {},
+                  "cookies": cookies}
         i = 0
         response = None
         while i < 10 or response.status_code == 429:
             i += 1
             response = self.session.request(url=link, data=payload, allow_redirects=False, **kwargs)
+            self.__update_cookies(response)
             if response.status_code == 429:
                 self.last_429_err_time = time.time()
                 time.sleep(min(2 ** i, 30))
@@ -220,9 +232,9 @@ class Account:
             if link.endswith("account/login"):
                 raise exceptions.UnauthorizedError(response)
             update_locale(link)
-
         else:
             response = self.session.request(url=link, data=payload, allow_redirects=True, **kwargs)
+            self.__update_cookies(response)
 
         if response.status_code == 403:
             raise exceptions.UnauthorizedError(response)
@@ -1144,7 +1156,7 @@ class Account:
         return json_response
 
     def raise_lots(self, category_id: int, subcategories: Optional[list[int | types.SubCategory]] = None,
-                   exclude: list[int] | None = None) -> bool:
+                   exclude: list[int] | None = None) -> int:
         """
         Поднимает все лоты всех подкатегорий переданной категории (игры).
 
@@ -1158,8 +1170,8 @@ class Account:
         :param exclude: ID подкатегорий, которые не нужно поднимать.
         :type exclude: :obj:`list` of :obj:`int`, опционально.
 
-        :return: `True`
-        :rtype: :obj:`bool`
+        :return: через сколько секунд можно повторно поднимать лоты?
+        :rtype: :obj:`int`
         """
         if not self.is_initiated:
             raise exceptions.AccountNotInitiatedError()
@@ -1195,16 +1207,17 @@ class Account:
         response = self.method("post", "lots/raise", headers, payload, raise_not_200=True)
         json_response = response.json()
         logger.debug(f"Ответ FunPay (поднятие категорий): {json_response}.")  # locale
+        wait_time = json_response.get("wait")
         if not json_response.get("error") and not json_response.get("url"):
-            return True
+            return wait_time
         elif json_response.get("url"):
-            raise exceptions.RaiseError(response, category, json_response.get("url"), 7200)
+            raise exceptions.RaiseError(response, category, json_response.get("url"), wait_time or 7200)
         elif json_response.get("error") and json_response.get("msg") and \
                 any([i in json_response.get("msg") for i in ("Подождите ", "Please wait ", "Зачекайте ")]):
-            wait_time = utils.parse_wait_time(json_response.get("msg"))
-            raise exceptions.RaiseError(response, category, json_response.get("msg"), wait_time)
+            raise exceptions.RaiseError(response, category, json_response.get("msg"),
+                                        wait_time or utils.parse_wait_time(json_response.get("msg")))
         else:
-            raise exceptions.RaiseError(response, category, json_response.get("msg"), None)
+            raise exceptions.RaiseError(response, category, json_response.get("msg"), wait_time)
 
     def get_user(self, user_id: int, locale: Literal["ru", "en", "uk"] | None = None) -> types.UserProfile:
         """
@@ -1341,7 +1354,46 @@ class Account:
             return self.get_sales(id=order_id)[1][0]
         return self.runner.saved_orders.get(order_id, self.get_sales(id=order_id)[1][0])
 
-    def get_order(self, order_id: str, locale: Literal["ru", "en", "uk"] | None = None) -> types.Order:
+    def get_orders_by_ids(self, *order_ids: str, include_details: bool = True,
+                           include_users: bool = True,
+                           include_review: bool = True,
+                           locale: Literal["ru", "en", "uk"] | None = None) -> dict[str, FunPayAPI.types.Order]:
+
+        if not 1 <= len(order_ids) <= 10:
+            raise ValueError("order_ids must contain 1–10 items")
+
+        include = []
+        if include_details:
+            include.append("details")
+        if include_users:
+            include.append("users")
+        if include_review:
+            include.append("review")
+
+        headers = {
+            "Content-Type": "application/json"
+        }
+        locale = locale or self.__order_parse_locale or self.locale or "ru"
+
+        headers["Accept-Language"] = locale
+
+        payload = {
+            "order_uids": list(order_ids),
+            "include": include
+        }
+
+        r = self.method("post", "https://funpay.com/api/orders/get", headers=headers,
+                    payload=json.dumps(payload), raise_not_200=True)
+        d = r.json()
+        if d.get("status") != "SUCCESS" or "data" not in d:
+            raise exceptions.RequestFailedError(response=r)
+        return {order_id: self.__parse_order(order_data, locale) for order_id, order_data in d.get("data").items()}
+
+
+    def get_order(self, order_id: str, include_details: bool = True,
+                  include_users: bool = True,
+                  include_review: bool = True,
+                  locale: Literal["ru", "en", "uk"] | None = None) -> types.Order:
         """
         Получает полную информацию о заказе.
 
@@ -1351,130 +1403,8 @@ class Account:
         :return: объекст заказа.
         :rtype: :class:`FunPayAPI.types.Order`
         """
-        if not self.is_initiated:
-            raise exceptions.AccountNotInitiatedError()
-        headers = {
-            "accept": "*/*"
-        }
-        if not locale:
-            locale = self.__order_parse_locale
-        response = self.method("get", f"orders/{order_id}/", headers, {}, raise_not_200=True, locale=locale)
-        if locale:
-            self.locale = self.__default_locale
-        html_response = response.content.decode()
-        parser = BeautifulSoup(html_response, "lxml")
-        username = parser.find("div", {"class": "user-link-name"})
-        if not username:
-            raise exceptions.UnauthorizedError(response)
-
-        self.__update_csrf_token(parser)
-
-        if (span := parser.find("span", {"class": "text-warning"})) and span.text in (
-                "Возврат", "Повернення", "Refund"):
-            status = types.OrderStatuses.REFUNDED
-        elif (span := parser.find("span", {"class": "text-success"})) and span.text in ("Закрыт", "Закрито", "Closed"):
-            status = types.OrderStatuses.CLOSED
-        else:
-            status = types.OrderStatuses.PAID
-
-        short_description = None
-        full_description = None
-        sum_ = None
-        currency = FunPayAPI.common.enums.Currency.UNKNOWN
-        subcategory = None
-        order_secrets = []
-        stop_params = False
-        lot_params = []
-        buyer_params = {}
-
-        amount = 1
-        for div in parser.find_all("div", {"class": "param-item"}):
-            if not (h := div.find("h5")):
-                continue
-            if not stop_params and div.find_previous("hr"):
-                stop_params = True
-
-            if h.text in ("Краткое описание", "Короткий опис", "Short description"):
-                stop_params = True
-                short_description = div.find("div").text
-            elif h.text in ("Подробное описание", "Докладний опис", "Detailed description"):
-                stop_params = True
-                full_description = div.find("div").text
-            elif h.text in ("Сумма", "Сума", "Total"):
-                sum_ = float(div.find("span").text.replace(" ", ""))
-                currency = parse_currency(div.find("strong").text)
-            elif h.text in ("Категория", "Категорія", "Category",
-                            "Валюта", "Currency"):
-                subcategory_link = div.find("a").get("href")
-                subcategory_split = subcategory_link.split("/")
-                subcategory_id = int(subcategory_split[-2])
-                subcategory_type = types.SubCategoryTypes.COMMON if "lots" in subcategory_link else \
-                    types.SubCategoryTypes.CURRENCY
-                subcategory = self.get_subcategory(subcategory_type, subcategory_id)
-            elif h.text in ("Оплаченный товар", "Оплаченные товары",
-                            "Оплачений товар", "Оплачені товари",
-                            "Paid product", "Paid products"):
-                secret_placeholders = div.find_all("span", class_="secret-placeholder")
-                order_secrets = [i.text for i in secret_placeholders]
-            elif h.text in ("Количество", "Amount", "Кількість"):
-                div2 = div.find("div", class_="text-bold")
-                if div2:
-                    match = RegularExpressions().PRODUCTS_AMOUNT_ORDER.fullmatch(div2.text)
-                    if match:
-                        amount = int(match.group(1).replace(" ", ""))
-            elif h.text in ("Відкрито", "Открыт", "Open"):
-                continue  # todo
-            elif h.text in ("Закрито", "Закрыт", "Closed"):
-                continue  # todo
-            elif not stop_params and h.text not in ("Игра", "Гра", "Game"):
-                div2 = div.find("div")
-                if div2:
-                    res = div2.text.strip()
-                    lot_params.append((h.text, res))
-            elif stop_params:
-                div2 = div.find("div", class_="text-bold")
-                if div2:
-                    buyer_params[h.text] = div2.text
-        if not stop_params:
-            lot_params = []
-
-        chat = parser.find("div", {"class": "chat-header"})
-        chat_link = chat.find("div", {"class": "media-user-name"}).find("a")
-        interlocutor_name = chat_link.text
-        interlocutor_id = int(chat_link.get("href").split("/")[-2])
-        nav_bar = parser.find("ul", {"class": "nav navbar-nav navbar-right logged"})
-        active_item = nav_bar.find("li", {"class": "active"})
-        if any(i in active_item.find("a").text.strip() for i in ("Продажи", "Продажі", "Sales")):
-            buyer_id, buyer_username = interlocutor_id, interlocutor_name
-            seller_id, seller_username = self.id, self.username
-        else:
-            buyer_id, buyer_username = self.id, self.username
-            seller_id, seller_username = interlocutor_id, interlocutor_name
-        id1, id2 = sorted([buyer_id, seller_id])
-        chat_id = f"users-{id1}-{id2}"
-        review_obj = parser.find("div", {"class": "order-review"})
-        if not (stars_obj := review_obj.find("div", {"class": "rating"})):
-            stars, text = None, None
-        else:
-            stars = int(stars_obj.find("div").get("class")[0].split("rating")[1])
-            text = review_obj.find("div", {"class": "review-item-text"}).text.strip()
-        hidden = review_obj.find("span", class_="text-warning") is not None
-        if not (reply_obj := review_obj.find("div", {"class": "review-item-answer review-compiled-reply"})):
-            reply = None
-        else:
-            reply = reply_obj.find("div").text.strip()
-
-        if all([not text, not reply]):
-            review = None
-        else:
-            review = types.Review(stars, text, reply, False, str(review_obj), hidden, order_id, buyer_username,
-                                  buyer_id, bool(text and text.endswith(self.bot_character)),
-                                  bool(reply and reply.endswith(self.bot_character)))
-        order = types.Order(order_id, status, subcategory, lot_params, buyer_params,
-                            short_description, full_description, amount,
-                            sum_, currency, buyer_id, buyer_username, seller_id, seller_username, chat_id,
-                            html_response, review, order_secrets)
-        return order
+        return self.get_orders_by_ids(order_id, include_users=include_users,
+                               include_details=include_details, include_review=include_review, locale=locale)[order_id]
 
     def get_sales(self, start_from: str | None = None, include_paid: bool = True, include_closed: bool = True,
                   include_refunded: bool = True, exclude_ids: list[str] | None = None,
@@ -1704,6 +1634,10 @@ class Account:
             elif last_msg_text.startswith(self.old_bot_character):
                 last_msg_text = last_msg_text[1:]
                 by_vertex = True
+
+            if last_msg_text.endswith(self.zero_width_suffix):
+                last_msg_text = last_msg_text[:-len(self.zero_width_suffix)]
+
             chat_obj = types.ChatShortcut(chat_id, chat_with, last_msg_text, node_msg_id, user_msg_id, unread, str(msg))
             if not is_image:
                 chat_obj.last_by_bot = by_bot
@@ -2219,6 +2153,9 @@ class Account:
                 else:
                     message_text = parser.find("div", {"class": "chat-msg-text"}).text
 
+                if message_text.endswith(self.zero_width_suffix):
+                    message_text = message_text[:-len(self.zero_width_suffix)]
+
                 if message_text.startswith(self.__bot_character) or \
                         message_text.startswith(self.__old_bot_character) and author_id == self.id:
                     message_text = message_text[1:]
@@ -2325,6 +2262,68 @@ class Account:
 
         return types.BuyerViewing(buyer_id, link, text, tag, html)
 
+    def __parse_order(self, order_data: dict, locale: Literal["ru", "en", "uk"]) -> types.Order:
+
+        id_ = order_data["order_uid"]
+
+        node_id = order_data["section"]["local_id"]
+        subcategory_type = types.SubCategoryTypes.COMMON if order_data["section"]["type_id"] == "lot" else \
+            types.SubCategoryTypes.CURRENCY
+        subcategory = self.get_subcategory(subcategory_type, node_id)
+
+        buyer = order_data["buyer"]
+        seller = order_data["seller"]
+        buyer_id, seller_id = buyer["user_id"], seller["user_id"]
+        buyer_username, seller_username = buyer.get("name"), seller.get("name")
+
+        currency = parse_currency(order_data["currency"])
+        price = float(order_data["amount"])
+
+        status_str = order_data["status"]
+        status = {"unpaid": enums.OrderStatuses.UNPAID,
+                  "paid": enums.OrderStatuses.PAID,
+                  "closed": enums.OrderStatuses.CLOSED,
+                  "refunded": enums.OrderStatuses.REFUNDED,
+                  "partially_refunded": enums.OrderStatuses.PARTIALLY_REFUNDED
+                  }[status_str]
+
+        chat_id = order_data["chat"]["node_name"]
+
+        review = order_data.get("review")
+
+        if review:
+            text = review["text"]
+            rating = review["rating"]
+            reply = review["reply"]
+            hidden = review["hidden"]
+            if text or rating or reply:
+                review = types.Review(rating, text, reply, False, "", hidden, id_, buyer_username,
+                                      buyer_id, bool(text and text.endswith(self.bot_character)),
+                                      bool(reply and reply.endswith(self.bot_character)))
+            else:
+                review = None
+
+        type_data = order_data.get("type_data", {})
+        amount = type_data.get("amount")
+        if amount:
+            amount = float(type_data["amount"])
+            amount = int(amount) if int(amount) == amount else amount
+        player = type_data.get("player") or None
+
+        secrets = [i["value"] for i in type_data.get("secrets", [])]
+        server = type_data.get("server")
+        if server:
+            server = types.Server(server["server_id"], server.get("name"))
+        side = type_data.get("side")
+        if side:
+            side = types.Side(side["side_id"], side.get("name"))
+        fields = {key: types.LotField(key, value["value"], value["name"], value["field_type_id"])
+                  for key, value in type_data.get("fields", {}).items()}
+
+        return types.Order(id_, status, subcategory, server, side,
+                           fields, amount, price, currency, player, buyer_id, buyer_username,
+                           seller_id, seller_username, chat_id, review, secrets, locale)
+
     @staticmethod
     def chat_id_private(chat_id: int | str):
         return isinstance(chat_id, int) or PRIVATE_CHAT_ID_RE.fullmatch(chat_id)
@@ -2338,6 +2337,10 @@ class Account:
         return self.__old_bot_character
 
     @property
+    def zero_width_suffix(self) -> str:
+        return " ​‍‌"
+
+    @property
     def locale(self) -> Literal["ru", "en", "uk"] | None:
         return self.__locale
 
@@ -2345,3 +2348,28 @@ class Account:
     def locale(self, new_locale: Literal["ru", "en", "uk"]):
         if self.__locale != new_locale and new_locale in ("ru", "en", "uk"):
             self.__set_locale = new_locale
+
+    def normalize_url(self, api_method: str, locale: Literal["ru", "en", "uk"] | None = None) -> str:
+
+        api_method = api_method.lstrip("/")
+        if api_method.startswith("api/"):
+            return f"https://funpay.com/{api_method}"
+        if "funpay.com/api/" in api_method:
+            return api_method
+
+        api_method = "https://funpay.com/" if api_method == "https://funpay.com" else api_method
+        url = api_method if api_method.startswith("https://funpay.com/") else "https://funpay.com/" + api_method
+        locales = ("en", "uk")
+        for loc in locales:
+            url = url.replace(f"https://funpay.com/{loc}/", "https://funpay.com/", 1)
+        if not locale:
+            locale = self.locale
+        if locale in locales:
+            return url.replace(f"https://funpay.com/", f"https://funpay.com/{locale}/", 1)
+        return url
+
+    @staticmethod
+    def is_funpay_api_method(api_method: str):
+        if "funpay.com/api/" in api_method or api_method.startswith("api/"):
+            return True
+        return False

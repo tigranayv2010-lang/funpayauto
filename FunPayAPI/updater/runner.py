@@ -366,6 +366,10 @@ class Runner:
             elif last_msg_text.startswith(self.account.old_bot_character):
                 last_msg_text = last_msg_text[1:]
                 by_vertex = True
+
+            if last_msg_text.endswith(self.account.zero_width_suffix):
+                last_msg_text = last_msg_text[:-len(self.account.zero_width_suffix)]
+
             # если сообщение отправлено непрочитанным и вкл старый режим, то [0, 0, None] или [0, 0, "text"]
             prev_node_msg_id, prev_user_msg_id, prev_text = self.runner_last_messages.get(chat_id) or [-1, -1, None]
             last_msg_text_or_none = None if last_msg_text in ("Изображение", "Зображення", "Image") else last_msg_text

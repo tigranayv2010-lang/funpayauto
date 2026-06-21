@@ -9,7 +9,7 @@ import os
 from Utils.exceptions import (ParamNotFoundError, EmptyValueError, ValueNotValidError, SectionNotFoundError,
                               ConfigParseError, ProductsFileNotFoundError, NoProductVarError,
                               SubCommandAlreadyExists, DuplicateSectionErrorWrapper)
-from Utils.cardinal_tools import hash_password
+from Utils.cardinal_tools import hash_password, build_proxy
 
 
 def check_param(param_name: str, section: SectionProxy, valid_values: list[str | None] | None = None,
@@ -53,9 +53,7 @@ def create_config_obj(config_path: str) -> ConfigParser:
     """
     config = ConfigParser(delimiters=(":",), interpolation=None)
     config.optionxform = str
-    with open(config_path, "r", encoding="utf-8", newline='') as f:
-        config.read_file(f)
-        print("Конфиг успешно прочитан, секций:", len(config.sections()))
+    config.read_file(codecs.open(config_path, "r", "utf8"))
     return config
 
 
@@ -87,6 +85,7 @@ def load_main_config(config_path: str):
             "enabled": ["0", "1"],
             "token": "any+empty",
             "secretKeyHash": "any",
+            "proxy": "any+empty",
             "blockLogin": ["0", "1"]
         },
 
@@ -137,10 +136,7 @@ def load_main_config(config_path: str):
 
         "Proxy": {
             "enable": ["0", "1"],
-            "ip": "any+empty",
-            "port": "any+empty",
-            "login": "any+empty",
-            "password": "any+empty",
+            "proxy": "any+empty",
             "check": ["0", "1"]
         },
 
@@ -226,6 +222,23 @@ def load_main_config(config_path: str):
             elif section_name == "Greetings" and param_name == "onlyNewChats" and param_name not in config[
                 section_name]:
                 config.set("Greetings", "onlyNewChats", "0")
+                with open("configs/_main.cfg", "w", encoding="utf-8") as f:
+                    config.write(f)
+            elif section_name == "Proxy" and param_name == "proxy" and param_name not in config[section_name]:
+                if config["Proxy"]["ip"] and config["Proxy"]["port"]:
+                    config.set("Proxy", "proxy", "")
+                else:
+                    config.set("Proxy", "proxy", build_proxy(None, config["Proxy"]["login"],
+                                                             config["Proxy"]["password"], config["Proxy"]["ip"],
+                                                             config["Proxy"]["port"]))
+                config.remove_option(section_name, "login")
+                config.remove_option(section_name, "password")
+                config.remove_option(section_name, "ip")
+                config.remove_option(section_name, "port")
+                with open("configs/_main.cfg", "w", encoding="utf-8") as f:
+                    config.write(f)
+            elif section_name == "Telegram" and param_name == "proxy" and param_name not in config[section_name]:
+                config.set("Telegram", "proxy", "")
                 with open("configs/_main.cfg", "w", encoding="utf-8") as f:
                     config.write(f)
 
