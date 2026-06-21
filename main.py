@@ -1,24 +1,28 @@
 import time
-from pip._internal.cli.main import main
+import subprocess
+import sys
 
 # todo убрать когда-то
+
+def _install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", package])
 
 try:
     import lxml
 except ModuleNotFoundError:
-    main(["install", "-U", "lxml>=5.3.0"])
+    _install("lxml>=5.3.0")
 except:
     pass
 try:
     import bcrypt
 except ModuleNotFoundError:
-    main(["install", "-U", "bcrypt>=4.2.0"])
+    _install("bcrypt>=4.2.0")
 except:
     pass
 try:
     import socks
 except ModuleNotFoundError:
-    main(["install", "-U", "pysocks>=1.7.1"])
+    _install("pysocks>=1.7.1")
 except:
     pass
 import Utils.cardinal_tools
