@@ -88,6 +88,33 @@ logging.raiseExceptions = False
 logger = logging.getLogger("main")
 logger.debug("------------------------------------------------------------------")
 
+def start_health_check_server():
+    port_env = os.getenv("PORT")
+    if not port_env:
+        return
+    try:
+        from http.server import HTTPServer, BaseHTTPRequestHandler
+        import threading
+
+        class HealthCheckHandler(BaseHTTPRequestHandler):
+            def do_GET(self):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"FunPay Cardinal is running")
+
+            def log_message(self, format, *args):
+                pass
+
+        port = int(port_env)
+        server = HTTPServer(("0.0.0.0", port), HealthCheckHandler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        logger.info(f"$CYANСервер проверки доступности (Health Check) запущен на порту {port}")
+    except Exception as e:
+        logger.warning(f"Не удалось запустить Health Check сервер: {e}")
+
+start_health_check_server()
+
 print(f"{Style.RESET_ALL}{logo}")
 print(f"{Fore.RED}{Style.BRIGHT}v{VERSION}{Style.RESET_ALL}\n")  # locale
 print(f"{Fore.MAGENTA}{Style.BRIGHT}By {Fore.BLUE}{Style.BRIGHT}Woopertail, @sidor0912{Style.RESET_ALL}")

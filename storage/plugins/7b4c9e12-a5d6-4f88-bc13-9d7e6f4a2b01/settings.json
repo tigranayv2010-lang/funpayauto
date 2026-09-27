@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "supplier_api_key": "",
+  "target_product_id": 1,
+  "funpay_lots": [
+    {
+      "lot_id": "74380177",
+      "price": "90",
+      "title": "🚀 GEMINI PRO 3.1 & VEO 3.1 🚀 | 💎 АВТОВЫДАЧА (СВОЙ АККАУНТ) 💎 | 🌌 12+6 МЕСЯЦЕВ 🌌"
+    },
+    {
+      "lot_id": "74380183",
+      "price": "100",
+      "title": "🌌 ПРЕМИУМ GEMINI 3.1 PRO + BANANA 🌌 | 🚀 АВТОВЫДАЧА НА ПРОФИЛЬ 🚀 | 💠 1.5 ГОДА 💠"
+    },
+    {
+      "lot_id": "74380187",
+      "price": "100",
+      "title": "⚡ GEMINI ADVANCED & GOOGLE ONE 5TB ⚡ | 🪐 ВАШ АККАУНТ 🪐 | 💎 12+6 МЕС. 💎"
+    },
+    {
+      "lot_id": "74380175",
+      "price": "90",
+      "title": "💠 GEMINI ADVANCED (Antigravity Pack) 💠 | ⚡ НА ВАШ АККАУНТ ⚡ | 🪐 1.5 ГОДА 🪐"
+    }
+  ]
+}

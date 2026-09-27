@@ -7,13 +7,12 @@ venv2
 .venv
 .venv2
 __pycache__
-FunPayAPI/__pycache__
+**/__pycache__
 .idea
 logs
-storage
-configs
-plugins
 build
 dist
 test.py
 *.zip
+*.backup
+**/backups/
