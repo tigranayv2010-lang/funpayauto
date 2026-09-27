@@ -1,4 +1,10 @@
 {
+  "Unenduring112": {
+    "amount": 0,
+    "months": 1,
+    "chat_id": 0,
+    "priority_delivery": false
+  },
   "Treoc": {
     "amount": 0,
     "months": 1,
@@ -6,12 +12,6 @@
     "priority_delivery": false
   },
   "skr333": {
-    "amount": 0,
-    "months": 1,
-    "chat_id": 0,
-    "priority_delivery": false
-  },
-  "Unenduring112": {
     "amount": 0,
     "months": 1,
     "chat_id": 0,

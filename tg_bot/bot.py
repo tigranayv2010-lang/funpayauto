@@ -1239,7 +1239,7 @@ class TGBot:
         while True:
             try:
                 logger.info(_("log_tg_started", self.bot.user.username))
-                self.bot.infinity_polling(logger_level=logging.DEBUG)
+                self.bot.infinity_polling(logger_level=logging.DEBUG, allowed_updates=telebot.util.update_types)
             except:
                 k_err += 1
                 logger.error(_("log_tg_update_error", k_err))
